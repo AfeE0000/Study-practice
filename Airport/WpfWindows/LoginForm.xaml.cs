@@ -23,6 +23,7 @@ namespace Airport
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new ViewModels.LoginWindowViewModel();   
         }
     }
 }

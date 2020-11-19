@@ -6,8 +6,31 @@
         xmlns:local="clr-namespace:Airport"
         mc:Ignorable="d"
         Title="MainWindow"
-        WindowState="Maximized">
+        WindowState="Maximized" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True"
+        >
+    <Window.DataContext>
+        <Binding Path="ViewModels/LoginFowm.xaml"/>
+    </Window.DataContext>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.6*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.6*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.6*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" ScrollViewer.HorizontalScrollBarVisibility="Auto" CanHorizontallyScroll="True" CanVerticallyScroll="True" ScrollViewer.CanContentScroll="True" >
+            <TextBlock Text="Логин" Style="{DynamicResource LoginFormStyle}" TextAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Visible"/>
+            <TextBox Style="{StaticResource LoginFormStyle}" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <TextBlock Text="Пароль" Style="{StaticResource LoginFormStyle}" TextAlignment="Center"/>
+            <PasswordBox x:Name="passwordBox" Style="{StaticResource LoginFormStyle}" />
+            <Button Content="Вход" Style="{StaticResource LoginFormStyle}" Command="{Binding EnterCommand}" CommandParameter="{Binding ElementName=passwordBox, Path=Password}"/>
+            <Button Content="Регистрация" Style="{StaticResource LoginFormStyle}"/>
+        </StackPanel>
         
     </Grid>
+
 </Window>
