@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
 using Airport.RelayCommands;
+using Airport.SQLExecute;
 
 
 namespace Airport.ViewModels
@@ -38,6 +39,13 @@ namespace Airport.ViewModels
                   {
                       password = obj as string;
                       login = password;
+                      SqlCommands sqlCommands = new SqlCommands();
+                      SqlCommands.Server = "";//Добавить сервер
+                      SqlCommands.Port = 3306;//Добавить порт
+                      SqlCommands.Id = "";//Добавить id
+                      SqlCommands.Password = "";//Добавить пароль
+                      string querry = "select * from userLogin where (iduserLogin = @Param1 && password= @Param2)";
+
                   }, (obj) => login.Length>0));
             }
         }
