@@ -9,6 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace Airport.SQLExecute
 {
+    //Проверка
     class SqlCommands
     {
         //Id входа на сервер
