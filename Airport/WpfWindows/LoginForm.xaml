@@ -30,8 +30,6 @@
             <Button Content="Вход" Style="{StaticResource LoginFormStyle}" Command="{Binding EnterCommand}" CommandParameter="{Binding ElementName=passwordBox, Path=Password}"/>
             <Button Content="Регистрация" Style="{StaticResource LoginFormStyle}"/>
         </StackPanel>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="80,95,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75">
-        </Button>
 
     </Grid>
 
